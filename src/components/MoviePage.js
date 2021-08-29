@@ -28,6 +28,18 @@ const MoviePage = ({ addWatchlistItem, userWatchlistIDs, deleteWatchlistItem }) 
         const response = await fetch(url)
         const data = await response.json()
         setActors(data.cast)
+        console.log(data)
+    }
+
+    function commafy(num) {
+        var str = num.toString().split('.');
+        if (str[0].length >= 5) {
+            str[0] = str[0].replace(/(\d)(?=(\d{3})+$)/g, '$1,');
+        }
+        if (str[1] && str[1].length >= 5) {
+            str[1] = str[1].replace(/(\d{3})/g, '$1 ');
+        }
+        return str.join('.');
     }
 
     useEffect(() => {
@@ -56,7 +68,7 @@ const MoviePage = ({ addWatchlistItem, userWatchlistIDs, deleteWatchlistItem }) 
                     </div>
                     <div className="moviePageBudget">
                         <FaMoneyBill className="moviePageBudgetIcon" />
-                        <div className="moviePageBudgetNum">{info.budget} $</div>
+                        <div className="moviePageBudgetNum">{!info.budget ? info.budget : commafy(info.budget)} $</div>
                     </div>
                     <div className="moviePageQuote">
                         <FaQuoteLeft className="moviePageQuoteIcon" />

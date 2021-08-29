@@ -26,9 +26,15 @@ function App() {
   const [userWatchlistIDs, setUserWatchlistIDs] = useState({})
   const [userWatchlist, setUserWatchlist] = useState([])
   const [isLogged, setIsLogged] = useState(false)
+  const [sorting, setSorting] = useState("popularity.desc")
 
   const db = getFirestore(app);
 
+
+  function handleSort(method) {
+    console.log(method)
+    setSorting(method)
+  }
 
 
   async function mapWatchlist() {
@@ -104,7 +110,7 @@ function App() {
   const getMovies = async () => {
     let url = "";
     if (query === "") {
-      url = `https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=e764649bbb8537331dad79eaec972aa4&page=${page}`
+      url = `https://api.themoviedb.org/3/discover/movie?sort_by=${sorting}&api_key=e764649bbb8537331dad79eaec972aa4&page=${page}`
     } else {
       url = `https://api.themoviedb.org/3/search/movie?&api_key=e764649bbb8537331dad79eaec972aa4&page=1&query=${query}`
     }
@@ -146,7 +152,7 @@ function App() {
   useEffect(() => {
     getMovies()
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [page, query])
+  }, [page, query, sorting])
 
   useEffect(() => {
     mapWatchlist()
@@ -171,6 +177,22 @@ function App() {
           <Route exact path="/">
             <Navbar setUserWatchlistIDs={setUserWatchlistIDs} setIsLogged={setIsLogged} getWatchlists={getWatchlists} setUserWatchlist={setUserWatchlist} query={query} handleSearch={handleSearch} userCredentials={userCredentials} setUserCredentials={setUserCredentials} />
             {!isLoading ? <div>
+              <div className="movies_sortby">
+                {query === "" ? <div id="sorts" className="button-group">
+                  <button onClick={() => {
+                    handleSort("popularity.desc")
+                  }} method="popularity" className={sorting === "popularity.desc" ? "button is-checked" : "button"} data-sort-by="original-order">Popularity</button>
+                  <button onClick={() => {
+                    handleSort("release_date.desc")
+                  }} method="release" className={sorting === "release_date.desc" ? "button is-checked" : "button"} data-sort-by="title">Release Date</button>
+                  <button onClick={() => {
+                    handleSort("vote_average.desc")
+                  }} method="vote" className={sorting === "vote_average.desc" ? "button is-checked" : "button"} data-sort-by="author">Vote Average</button>
+                  <button onClick={() => {
+                    handleSort("vote_count.desc")
+                  }} method="vote_count" className={sorting === "vote_count.desc" ? "button is-checked" : "button"} data-sort-by="author">Vote Count</button>
+                </div> : ""}
+              </div>
               <div className="moviesContainer">
                 {movies !== undefined ? movies.map((movie) => {
                   return (
