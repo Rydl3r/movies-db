@@ -183,6 +183,7 @@ code {
 .MoviePageWrapper {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
 .moviePageImageWrapper {
@@ -309,7 +310,7 @@ code {
 
 .userName {
   font-size: 14px;
-  width: 100px;
+  width: 70px;
   padding-top: 4px;
   color: white;
   text-decoration: none;
@@ -395,7 +396,7 @@ code {
 
 .watchlistButton {
   background: white;
-  font-size: 24px;
+  font-size: 20px;
   border: none;
   transition: all 0.2s ease;
   outline: none;
@@ -421,4 +422,100 @@ code {
 
 .userPhotoSource {
   border-radius: 50%;
+}
+
+.HomePageButton {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+.actors_wrapper {
+  text-align: center;
+  padding-right: 50px;
+  padding-left: 50px;
+}
+
+.actors_title {
+  font-weight: 700;
+  font-size: 36px;
+  padding-bottom: 20px;
+}
+
+.actors_block {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.actor_card {
+  flex: 1 1 25%;
+  margin-bottom: 20px;
+  text-align: center;
+  padding-bottom: 20px;
+  padding-top: 20px;
+}
+
+.actorImage {
+  height: 300px;
+  width: 200px;
+}
+
+Link {
+  text-decoration: none;
+  outline: none;
+  underline:none;
+  border: none;
+  color: inherit;
+}
+
+@media (max-width: 1200px) {
+  .search {
+    padding-left: 0;
+    margin-top: 4px;
+  }
+  .heroTitleLink {
+    width: 20%;
+  }
+
+}
+
+@media (max-width: 700px) {
+  .heroTitleLink {
+    display: none;
+  }
+  .heroTitle {
+    display: none;
+  }
+  .login-with-google-btn {
+    font-size: 0;
+    width: 40px;
+    margin-right: 15px;
+  }
+  .search {
+    width: 100%;
+  }
+  .searchButton {
+    display: none;
+  }
+  .searchTerm {
+    border-radius: 5px;
+    border-right: 3px solid #00b4cc;
+    
+
+  }
+  .moviePageInfo {
+    padding-left: 10px;
+    padding-right: 100px;
+    width: 100%;
+  }
+  .moviePageImageWrapper {
+    padding-left: 0;
+  }
+  .actors_wrapper {
+    padding-left: 0;
+  }
+  .moviePageButtons {
+    justify-content: center;
+  }
 }

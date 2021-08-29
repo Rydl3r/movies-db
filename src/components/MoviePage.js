@@ -2,15 +2,19 @@ import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useParams } from 'react-router-dom'
 import { BiTimeFive } from 'react-icons/bi';
+import Button from '@material-ui/core/Button';
+import Card from '@material-ui/core/Card';
 import { FaStar, FaMoneyBill, FaQuoteLeft } from 'react-icons/fa';
 import { MdWatchLater } from 'react-icons/md';
-import { AiFillCheckCircle } from 'react-icons/ai';
+import { AiFillCheckCircle, AiOutlineInfoCircle } from 'react-icons/ai';
 
 const MoviePage = ({ addWatchlistItem, userWatchlistIDs, deleteWatchlistItem }) => {
     let { id } = useParams();
     const [info, setInfo] = useState([])
+    const [actors, setActors] = useState([])
 
     const IMGPATH = "https://image.tmdb.org/t/p/w500";
+    const ACTORIMGPATH = "https://image.tmdb.org/t/p/w500"
 
     const getMovieInfo = async () => {
         let url = `https://api.themoviedb.org/3/movie/${id}?&api_key=e764649bbb8537331dad79eaec972aa4`
@@ -19,8 +23,16 @@ const MoviePage = ({ addWatchlistItem, userWatchlistIDs, deleteWatchlistItem }) 
         setInfo(data)
     }
 
+    const getActorsInfo = async () => {
+        let url = `https://api.themoviedb.org/3/movie/${id}/credits?&api_key=e764649bbb8537331dad79eaec972aa4`
+        const response = await fetch(url)
+        const data = await response.json()
+        setActors(data.cast)
+    }
+
     useEffect(() => {
         getMovieInfo()
+        getActorsInfo()
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
@@ -51,16 +63,39 @@ const MoviePage = ({ addWatchlistItem, userWatchlistIDs, deleteWatchlistItem }) 
                         <div className="moviePageQuoteText">{info.tagline === "" ? "Some epic quote" : info.tagline}</div>
                     </div>
                     <div className="moviePageButtons">
-                        <Link className="moviePageButton" to={'/'}>
-                            Home Page
+                        <Link to={'/'}>
+                            <Button variant="contained">
+                                Home Page
+                            </Button>
                         </Link>
                         <div>
                             {userWatchlistIDs.length !== 0 && Object.keys(userWatchlistIDs).map(a => a.toString()).indexOf(id.toString()) === -1 ?
-                                <button className="watchlistButton" onClick={() => { addWatchlistItem(info.id) }}><MdWatchLater /></button>
+                                <button className="watchlistButton" variant="contained" onClick={() => { addWatchlistItem(info.id) }}><MdWatchLater /></button>
                                 :
-                                <button className="watchlistButton" onClick={() => { deleteWatchlistItem(info.id) }}><AiFillCheckCircle /></button>}
+                                <button className="watchlistButton" variant="contained" onClick={() => { deleteWatchlistItem(info.id) }}><AiFillCheckCircle /></button>}
                         </div>
                     </div>
+                </div>
+            </div>
+            <div className="actors_wrapper">
+                <div className="actors_title">Actors</div>
+                <div className="actors_block">
+                    {actors.map((actor, idx) => {
+
+
+
+                        return (
+
+                            <div variant="outlined" className="actor_card" key={idx}>
+                                <div className="actor_image">
+                                    <img alt="No image available" className="actorImage" src={ACTORIMGPATH + actor.profile_path}></img>
+                                </div>
+
+                                <div className="actorName">{actor.name}</div>
+                                <div className="actorCharacter">{actor.character}</div>
+                            </div>
+                        )
+                    })}
                 </div>
             </div>
         </div>

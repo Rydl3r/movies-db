@@ -2,6 +2,7 @@ import React from 'react'
 import { FaStar } from 'react-icons/fa';
 import { MdWatchLater } from 'react-icons/md';
 import { AiFillCheckCircle } from 'react-icons/ai';
+import Button from '@material-ui/core/Button';
 import { Link } from 'react-router-dom'
 
 const Movie = ({ info, addWatchlistItem, userWatchlistIDs, deleteWatchlistItem }) => {
@@ -18,14 +19,16 @@ const Movie = ({ info, addWatchlistItem, userWatchlistIDs, deleteWatchlistItem }
                 <div className="vote_count">({info.vote_count})</div>
             </div>
             <div className="movieButtons">
-                <Link className="moreInfo" to={'/movie/' + info.id}>
-                    More Info
+                <Link to={'/movie/' + info.id}>
+                    <Button variant="contained">
+                        More Info
+                    </Button>
                 </Link>
                 <div>
                     {userWatchlistIDs.length !== 0 && Object.keys(userWatchlistIDs).map(a => a.toString()).indexOf(info.id.toString()) === -1 ?
                         <button className="watchlistButton" onClick={() => { addWatchlistItem(info.id) }}><MdWatchLater /></button>
                         :
-                        <button className="watchlistButton" onClick={() => { deleteWatchlistItem(info.id) }}><AiFillCheckCircle /></button>}
+                        <button className="watchlistButton" variant="contained" onClick={() => { deleteWatchlistItem(info.id) }}><AiFillCheckCircle /></button>}
                 </div>
             </div>
         </div>

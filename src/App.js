@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react'
 import Movie from './components/Movie';
 import MoviePage from './components/MoviePage';
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+import '@fontsource/roboto'
+import Button from '@material-ui/core/Button';
 import Loader from "react-loader-spinner";
 import {
   HashRouter as Router,
@@ -179,13 +181,13 @@ function App() {
                 }) : "Nothing found, please try another input"}
               </div>
               {query === "" ? <div className="hero_buttons">
-                <div className="loadless hero_button" onClick={() => {
+                <Button variant="contained" onClick={() => {
                   getPreviousPage()
-                }}>Prev Page</div>
+                }}>Prev Page</Button>
                 <div className="pagecount">{page}</div>
-                <div className="loadmore hero_button" onClick={() => {
+                <Button variant="contained" onClick={() => {
                   getNextPage()
-                }}>Next Page</div>
+                }}>Next Page</Button>
 
               </div> : ""}
             </div> : <Loader className="loader" type="ThreeDots" color="#fff" height={80} width={80} />}

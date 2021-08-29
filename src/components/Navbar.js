@@ -7,7 +7,9 @@ import { app } from "../firebase"
 
 
 
+
 const Navbar = ({ setIsLogged, query, handleSearch, userCredentials, setUserCredentials, setUserWatchlist, getWatchlists, setUserWatchlistIDs }) => {
+
 
     const googleSignIn = () => {
         const provider = new GoogleAuthProvider();
@@ -23,7 +25,16 @@ const Navbar = ({ setIsLogged, query, handleSearch, userCredentials, setUserCred
                 setIsLogged(true)
                 getWatchlists()
                 // ...
-            })
+            }).catch((error) => {
+                // Handle Errors here.
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                // The email of the user's account used.
+                const email = error.email;
+                // The AuthCredential type that was used.
+                const credential = GoogleAuthProvider.credentialFromError(error);
+                // ...
+            });
 
     }
 
