@@ -54,7 +54,7 @@ code {
 
 .movieContainer:hover {
   -webkit-transform: scale(1.05);
-          transform: scale(1.05);
+  transform: scale(1.05);
   cursor: pointer;
 }
 
@@ -202,7 +202,7 @@ code {
 .MoviePageImage:hover {
   cursor: pointer;
   -webkit-transform: scale(1.02);
-          transform: scale(1.02);
+  transform: scale(1.02);
 }
 
 .moviePageInfo {
@@ -268,7 +268,7 @@ code {
 }
 
 .heroTitleLink {
-  color:white;
+  color: white;
   text-decoration: none;
   width: 100%;
 }
@@ -280,8 +280,6 @@ code {
 .moviesContainer {
   padding-top: 20px;
 }
-
-
 
 .userInfo {
   display: flex;
@@ -355,7 +353,8 @@ code {
   color: #757575;
   font-size: 14px;
   font-weight: 500;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgiIGhlaWdodD0iMTgiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj48cGF0aCBkPSJNMTcuNiA5LjJsLS4xLTEuOEg5djMuNGg0LjhDMTMuNiAxMiAxMyAxMyAxMiAxMy42djIuMmgzYTguOCA4LjggMCAwIDAgMi42LTYuNnoiIGZpbGw9IiM0Mjg1RjQiIGZpbGwtcnVsZT0ibm9uemVybyIvPjxwYXRoIGQ9Ik05IDE4YzIuNCAwIDQuNS0uOCA2LTIuMmwtMy0yLjJhNS40IDUuNCAwIDAgMS04LTIuOUgxVjEzYTkgOSAwIDAgMCA4IDV6IiBmaWxsPSIjMzRBODUzIiBmaWxsLXJ1bGU9Im5vbnplcm8iLz48cGF0aCBkPSJNNCAxMC43YTUuNCA1LjQgMCAwIDEgMC0zLjRWNUgxYTkgOSAwIDAgMCAwIDhsMy0yLjN6IiBmaWxsPSIjRkJCQzA1IiBmaWxsLXJ1bGU9Im5vbnplcm8iLz48cGF0aCBkPSJNOSAzLjZjMS4zIDAgMi41LjQgMy40IDEuM0wxNSAyLjNBOSA5IDAgMCAwIDEgNWwzIDIuNGE1LjQgNS40IDAgMCAxIDUtMy43eiIgZmlsbD0iI0VBNDMzNSIgZmlsbC1ydWxlPSJub256ZXJvIi8+PHBhdGggZD0iTTAgMGgxOHYxOEgweiIvPjwvZz48L3N2Zz4=);
   background-color: white;
   background-repeat: no-repeat;
@@ -372,9 +371,9 @@ code {
 }
 .login-with-google-btn:focus {
   outline: none;
-  box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.04), 0 2px 4px rgba(0, 0, 0, 0.25), 0 0 0 3px #c8dafc;
+  box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.04), 0 2px 4px rgba(0, 0, 0, 0.25),
+    0 0 0 3px #c8dafc;
 }
-
 
 .login-with-google-btn:hover {
   cursor: pointer;
@@ -401,9 +400,9 @@ code {
   transition: all 0.2s ease;
   outline: none;
   border-radius: 20px 20px 20px 20px;
-    border: 1px solid white;
-    padding: 7px 8px 3px 8px;
-    margin-left: 5px;
+  border: 1px solid white;
+  padding: 7px 8px 3px 8px;
+  margin-left: 5px;
 }
 
 .watchlistButton:hover {
@@ -464,7 +463,7 @@ code {
 a {
   text-decoration: none;
   outline: none;
-  underline:none;
+  underline: none;
   border: none;
   color: inherit;
 }
@@ -477,7 +476,6 @@ a {
   .heroTitleLink {
     width: 20%;
   }
-
 }
 
 @media (max-width: 700px) {
@@ -501,8 +499,6 @@ a {
   .searchTerm {
     border-radius: 5px;
     border-right: 3px solid #00b4cc;
-    
-
   }
   .moviePageInfo {
     padding-left: 10px;
@@ -520,14 +516,17 @@ a {
   }
 }
 
-
 .button {
   display: inline-block;
-  padding: 0.5em 1.0em;
-  background: #EEE;
+  padding: 0.5em 1em;
+  background: #eee;
   border: none;
   border-radius: 7px;
-  background-image: linear-gradient( to bottom, hsla(0, 0%, 0%, 0), hsla(0, 0%, 0%, 0.2) );
+  background-image: linear-gradient(
+    to bottom,
+    hsla(0, 0%, 0%, 0),
+    hsla(0, 0%, 0%, 0.2)
+  );
   color: #222;
   font-family: sans-serif;
   font-size: 16px;
@@ -536,14 +535,14 @@ a {
 }
 
 .button:hover {
-  background-color: #8CF;
+  background-color: #8cf;
   text-shadow: 0 1px hsla(0, 0%, 100%, 0.5);
   color: #222;
 }
 
 .button:active,
 .button.is-checked {
-  background-color: #28F;
+  background-color: #28f;
 }
 
 .button.is-checked {
@@ -562,7 +561,7 @@ a {
 }
 
 .button-group:after {
-  content: '';
+  content: "";
   display: block;
   clear: both;
 }
@@ -574,8 +573,12 @@ a {
   margin-right: 1px;
 }
 
-.button-group .button:first-child { border-radius: 0.5em 0 0 0.5em; }
-.button-group .button:last-child { border-radius: 0 0.5em 0.5em 0; }
+.button-group .button:first-child {
+  border-radius: 0.5em 0 0 0.5em;
+}
+.button-group .button:last-child {
+  border-radius: 0 0.5em 0.5em 0;
+}
 
 .movies_sortby {
   text-align: center;
