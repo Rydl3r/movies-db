@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap);
+@import url("https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap");
 
 body {
   margin: 0;
@@ -147,13 +147,14 @@ code {
 .score {
   display: flex;
   justify-content: center;
+  align-items: center;
   padding-bottom: 8px;
   margin-bottom: 8px;
 }
 
 .vote_icon {
-  padding-top: 4px;
   padding-right: 4px;
+  padding-top: 2px;
 }
 
 .vote_average {
@@ -416,7 +417,7 @@ code {
 
 .moviePageButtons button {
   margin-top: 18px;
-  margin-left: 15px;
+  margin-right: 15px;
 }
 
 .userPhotoSource {
@@ -502,16 +503,24 @@ a {
   }
   .moviePageInfo {
     padding-left: 10px;
-    padding-right: 100px;
+    padding-right: 10px;
+    text-align: center;
     width: 100%;
   }
   .moviePageImageWrapper {
     padding-left: 0;
+    padding-right: 0;
   }
   .actors_wrapper {
     padding-left: 0;
   }
   .moviePageButtons {
+    justify-content: center;
+  }
+  .runtime,
+  .moviePageBudget,
+  .moviePageScore,
+  .moviePageQuote {
     justify-content: center;
   }
 }

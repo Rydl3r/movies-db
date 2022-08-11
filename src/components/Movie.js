@@ -19,7 +19,7 @@ const Movie = ({
         alt={info.original_title}
         className="MovieImage"
         src={IMGPATH + info.poster_path}
-      ></img>
+      />
       <h2 className="movieTitle">{info.original_title}</h2>
       <p className="releaseDate">{info.release_date}</p>
       <div className="score">
@@ -32,7 +32,7 @@ const Movie = ({
           <Button variant="contained">More Info</Button>
         </Link>
         <div>
-          {userWatchlistIDs.length !== 0 &&
+          {userWatchlistIDs.length &&
           Object.keys(userWatchlistIDs)
             .map((a) => a.toString())
             .indexOf(info.id.toString()) === -1 ? (

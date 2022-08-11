@@ -91,7 +91,7 @@ function App() {
   };
 
   const getMovies = async () => {
-    let url = "";
+    let url;
     if (query === "") {
       url = `https://api.themoviedb.org/3/discover/movie?sort_by=${sorting}&api_key=e764649bbb8537331dad79eaec972aa4&page=${page}`;
     } else {

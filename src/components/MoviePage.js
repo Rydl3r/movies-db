@@ -3,10 +3,9 @@ import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { BiTimeFive } from "react-icons/bi";
 import Button from "@material-ui/core/Button";
-import Card from "@material-ui/core/Card";
 import { FaStar, FaMoneyBill, FaQuoteLeft } from "react-icons/fa";
 import { MdWatchLater } from "react-icons/md";
-import { AiFillCheckCircle, AiOutlineInfoCircle } from "react-icons/ai";
+import { AiFillCheckCircle } from "react-icons/ai";
 
 const MoviePage = ({
   addWatchlistItem,
@@ -129,7 +128,7 @@ const MoviePage = ({
               <div variant="outlined" className="actor_card" key={idx}>
                 <div className="actor_image">
                   <img
-                    alt="No image available"
+                    alt={actor.name}
                     className="actorImage"
                     src={ACTORIMGPATH + actor.profile_path}
                   ></img>

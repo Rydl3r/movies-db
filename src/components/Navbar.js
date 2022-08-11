@@ -24,8 +24,6 @@ const Navbar = ({
     const auth = getAuth(app);
     signInWithPopup(auth, provider)
       .then((result) => {
-        const credential = GoogleAuthProvider.credentialFromResult(result);
-        const token = credential.accessToken;
         // The signed-in user info.
         const user = result.user;
 
@@ -42,11 +40,12 @@ const Navbar = ({
         const email = error.email;
         // The AuthCredential type that was used.
         const credential = GoogleAuthProvider.credentialFromError(error);
+        console.log(errorCode, errorMessage, email, credential);
         // ...
       });
   };
 
-  const signOutGoogle = () => {
+  const signOutFromGoogle = () => {
     const auth = getAuth(app);
     signOut(auth);
     setUserCredentials({});
@@ -80,7 +79,7 @@ const Navbar = ({
         </button>
       </form>
       <div>
-        {Object.keys(userCredentials).length === 0 ? (
+        {!Object.keys(userCredentials).length ? (
           <button
             onClick={() => {
               googleSignIn();
@@ -99,7 +98,7 @@ const Navbar = ({
                   <img
                     className="userPhotoSource"
                     src={userCredentials.photoURL}
-                    alt="User Photo"
+                    alt={userCredentials.displayName}
                   />
                 </div>
               </div>
@@ -107,7 +106,7 @@ const Navbar = ({
             <button
               className="logoutButton"
               onClick={() => {
-                signOutGoogle();
+                signOutFromGoogle();
               }}
             >
               Logout

@@ -12,20 +12,18 @@ const Watchlist = ({
   return (
     <div>
       <div className="moviesContainer">
-        {movies !== undefined
-          ? movies.map((movie) => {
-              return (
-                <div className="movieContainer">
-                  <Movie
-                    deleteWatchlistItem={deleteWatchlistItem}
-                    userWatchlistIDs={userWatchlistIDs}
-                    info={movie}
-                    key={movie.id}
-                    addWatchlistItem={addWatchlistItem}
-                  />
-                </div>
-              );
-            })
+        {movies && movies.length
+          ? movies.map((movie) => (
+              <div className="movieContainer">
+                <Movie
+                  deleteWatchlistItem={deleteWatchlistItem}
+                  userWatchlistIDs={userWatchlistIDs}
+                  info={movie}
+                  key={movie.id}
+                  addWatchlistItem={addWatchlistItem}
+                />
+              </div>
+            ))
           : "Nothing found, please try another input"}
       </div>
       <Link className="HomePageButton" to={"/"}>
